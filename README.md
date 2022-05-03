@@ -59,3 +59,5 @@ TensorFlow: Large-scale machine learning on heterogeneous systems,
 [5] Harris, C.R., Millman, K.J., van der Walt, S.J. et al. Array programming with NumPy. Nature 585, 357–362 (2020). DOI: 10.1038/s41586-020-2649-2. (Publisher link).
 
 [6] Bradski, G. (2000). The OpenCV Library. Dr. Dobb&#x27;s Journal of Software Tools.
+
+Thanks to the contributors of the above tools, the open source of these tools has provided great help for the realization of the project

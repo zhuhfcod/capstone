@@ -13,12 +13,25 @@ Image: This folder contains images from reports and blogs, including model struc
 
 ### Environment
 
-It is recommended to accomplish the code on google colab, because the code may report errors locally due to version and hardware reasons
+It is recommended to reproduce the code on Google Colab, because the code may report errors locally due to version and hardware reasons
 
 ### Problem statement
 
-With the development of the Internet, news content on the Internet has become more abundant. In order to improve the user experience, some major news portals will provide users with engaging content through recommendation systems. In this process, we need to use models to classify news accurately and in real-time. If you were a data scientist for a news portal, what method would you use to categorize news? Usually, we will use some conventional natural language processing models to deal with the problem of news classification, such as CNN, LSTM, and BERT. However, these traditional news classification models only consider textual information and ignore images, although images also contain essential news information. Will this achieve a better result if we use a multimodal neural network to combine image and text features? In this blog, we will discuss the performance of multimodal neural networks on news classification and compare it with the conventional models.
+With the development of the Internet, news content on the Internet has become more abundant. In order to improve the user experience, some major news portals will provide users with engaging content through recommendation systems. In this process, we need to use models to classify news accurately and in real-time. Nowadays, news classification mainly relies on models based on natural language processing, such as RNN, LSTM, and BERT. These conventional news classification models only consider textual information and ignore images, although images also contain essential news information. Therefore, we intend to use both image and text features to classify news through multimodal neural networks in this project. Besides, we compare the classification results of the multimodal neural network with the conventional models. The experiment result shows that multimodal methods can be a good trade-off between resource consumption and classification accuracy in the news classification task. The multimodal method can improve the model's classification accuracy from 0.97 to 0.98 with similar resource consumption.
 
-### Method
+### Dataset
 
+In news classification, the BBC news dataset is commonly used.  Although it contains a limited amount of data, it provides labels for some subtasks such as classification and sentiment strength. 
 
+In this project, we use this dataset. But on the original dataset, we only have the text and label information. To realize multimodal tasks, we need to crawl images that match the text on BBC’s official website. Next, we remove some news that does not have match images and news that cannot be found on the official website. Finally, our dataset contains 2026 pieces of data are divided into business, entertainment, politics, sport, and technology, and the number of each category is roughly balanced. Meanwhile, each piece of data contains a news headline, text body, and images.
+
+### Methodology
+
+We use the same data processing method as the image-only news classification task and the Text-only news classification task in the multimodal task.
+
+Now the mainstream multimodal models are divided into dual-stream architectures and single-stream architectures. The main difference between them is that the single-stream architectures will directly connect the image and the text features at first and then train both features in a transformer model. In contrast, in the multi-stream architecture, we first process the text feature and image feature separately in different models, then concatenate the processed results of the text model and image model and use the concatenated features to get the final prediction result through the transformer.
+
+<img width="473" alt="image" src="https://user-images.githubusercontent.com/69946337/166588638-a52b5403-fd37-4fde-baeb-9e5c2bf5a754.png">
+
+In news classification, the information carried by text is usually more prosperous than that of images. If we use a single-stream model, the accuracy of picture information is relatively low, but when the weights of text information and image information are the same, the training effect of the single-stream model is poor because the image causes a high error. Therefore, we decide to use convolution neural networks to train images and use BERT to train text; then, we can collect a series of vectors representing image information and text information through the training of text-only and image-only models, as shown in Figure 1. Next, we put these vectors into the transformer model and get the final classification result through the transformer structure.!
+In news classification, the information carried by text is usually more prosperous than that of images. If we use a single-stream model, the accuracy of picture information is relatively low, but when the weights of text information and image information are the same, the training effect of the single-stream model is poor because the image causes a high error. Therefore, we decide to use convolution neural networks to train images and use BERT to train text; then, we can collect a series of vectors representing image information and text information through the training of text-only and image-only models, as shown in Figure 1. Next, we put these vectors into the transformer model and get the final classification result through the transformer structure.!

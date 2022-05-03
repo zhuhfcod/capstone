@@ -34,4 +34,28 @@ Now the mainstream multimodal models are divided into dual-stream architectures 
 <img width="473" alt="image" src="https://user-images.githubusercontent.com/69946337/166588638-a52b5403-fd37-4fde-baeb-9e5c2bf5a754.png">
 
 In news classification, the information carried by text is usually more prosperous than that of images. If we use a single-stream model, the accuracy of picture information is relatively low, but when the weights of text information and image information are the same, the training effect of the single-stream model is poor because the image causes a high error. Therefore, we decide to use convolution neural networks to train images and use BERT to train text; then, we can collect a series of vectors representing image information and text information through the training of text-only and image-only models, as shown in Figure 1. Next, we put these vectors into the transformer model and get the final classification result through the transformer structure.!
-In news classification, the information carried by text is usually more prosperous than that of images. If we use a single-stream model, the accuracy of picture information is relatively low, but when the weights of text information and image information are the same, the training effect of the single-stream model is poor because the image causes a high error. Therefore, we decide to use convolution neural networks to train images and use BERT to train text; then, we can collect a series of vectors representing image information and text information through the training of text-only and image-only models, as shown in Figure 1. Next, we put these vectors into the transformer model and get the final classification result through the transformer structure.!
+In news classification, the information carried by text is usually more prosperous than that of images. If we use a single-stream model, the accuracy of picture information is relatively low, but when the weights of text information and image information are the same, the training effect of the single-stream model is poor because the image causes a high error. Therefore, we decide to use convolution neural networks to train images and use BERT to train text; then, we can collect a series of vectors representing image information and text information through the training of text-only and image-only models, as shown in Figure 1. Next, we put these vectors into the transformer model and get the final classification result through the transformer structure.
+
+### Thanksgiving
+[1] Martín Abadi, Ashish Agarwal, Paul Barham, Eugene Brevdo,
+Zhifeng Chen, Craig Citro, Greg S. Corrado, Andy Davis,
+Jeffrey Dean, Matthieu Devin, Sanjay Ghemawat, Ian Goodfellow,
+Andrew Harp, Geoffrey Irving, Michael Isard, Rafal Jozefowicz, Yangqing Jia,
+Lukasz Kaiser, Manjunath Kudlur, Josh Levenberg, Dan Mané, Mike Schuster,
+Rajat Monga, Sherry Moore, Derek Murray, Chris Olah, Jonathon Shlens,
+Benoit Steiner, Ilya Sutskever, Kunal Talwar, Paul Tucker,
+Vincent Vanhoucke, Vijay Vasudevan, Fernanda Viégas,
+Oriol Vinyals, Pete Warden, Martin Wattenberg, Martin Wicke,
+Yuan Yu, and Xiaoqiang Zheng.
+TensorFlow: Large-scale machine learning on heterogeneous systems,
+2015. Software available from tensorflow.org.
+
+[2] ALBERT (from Google Research and the Toyota Technological Institute at Chicago) released with the paper ALBERT: A Lite BERT for Self-supervised Learning of Language Representations, by Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, Radu Soricut.
+
+[3] BERT (from Google) released with the paper BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding by Jacob Devlin, Ming-Wei Chang, Kenton Lee and Kristina Toutanova.
+
+[4] VisualBERT (from UCLA NLP) released with the paper VisualBERT: A Simple and Performant Baseline for Vision and Language by Liunian Harold Li, Mark Yatskar, Da Yin, Cho-Jui Hsieh, Kai-Wei Chang.
+
+[5] Harris, C.R., Millman, K.J., van der Walt, S.J. et al. Array programming with NumPy. Nature 585, 357–362 (2020). DOI: 10.1038/s41586-020-2649-2. (Publisher link).
+
+[6] Bradski, G. (2000). The OpenCV Library. Dr. Dobb&#x27;s Journal of Software Tools.
